@@ -25,3 +25,5 @@ venv/
 node_modules/
 
 .env
+
+unuse/

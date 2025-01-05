@@ -29,7 +29,6 @@ import logging
 from browser_utils import BrowserManager
 from get_email_code import EmailVerificationHandler
 from logo import print_logo
-from reset_machine import MachineIDResetter
 
 # 在文件开头设置日志
 class ColoredFormatter(logging.Formatter):
@@ -364,14 +363,6 @@ if __name__ == "__main__":
                 update_cursor_auth(
                     email=account, access_token=token, refresh_token=token
                 )
-                
-                # 在认证更新成功后重置机器ID
-                print(f"\n{Fore.CYAN}{EMOJI['WAIT']} 开始重置机器标识...{Style.RESET_ALL}")
-                resetter = MachineIDResetter()
-                if resetter.reset_machine_ids():
-                    print(f"{Fore.GREEN}{EMOJI['SUCCESS']} 机器标识重置完成{Style.RESET_ALL}")
-                else:
-                    print(f"{Fore.RED}{EMOJI['ERROR']} 机器标识重置失败{Style.RESET_ALL}")
             else:
                 print(f"{Fore.RED}{EMOJI['ERROR']} 账户注册失败{Style.RESET_ALL}")
 

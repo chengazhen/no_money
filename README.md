@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square&logo=bookstack)](https://github.com/chengazhen/cursor-auto-free/blob/master/LICENSE)
 [![Stars](https://img.shields.io/github/stars/chengazhen/cursor-auto-free?style=flat-square&logo=github)](https://github.com/chengazhen/cursor-auto-free/stargazers)
 
-[🌏 中文](#中文) | [🌟 English](#english) 
+[中文](#中文) | [English](#english) 
 <p align="center">
   <img src="./screen/logo.png" alt="Cursor Pro Logo" width="200"/>
 </p>
@@ -17,11 +17,8 @@
 <details>
 <summary>v0.0.6</summary>
 1. 修复了无法获取邮箱验证码的问题
-2. 增加了机器ID重置功能
+<del>2. 增加了机器ID重置功能</del>
 3. 增加了进度条显示
-<p align="center">
-  <img src="./screen/run_2025-01-05_00-13-04.png" alt="ID" width="600"/>
-  </p>
 </details>
 
 ## 中文

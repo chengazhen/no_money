@@ -1,1 +1,2 @@
 DrissionPage==4.1.0.9
+colorama==0.4.6

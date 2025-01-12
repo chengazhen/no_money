@@ -10,6 +10,9 @@ Dự án này sử dụng giấy phép [CC BY-NC-ND 4.0](https://creativecommons
 Nhưng phải tuân thủ các điều kiện sau:
 - **Phi thương mại** — Không được sử dụng tác phẩm này cho mục đích thương mại.
 
+## Hướng Dẫn Video
+[Xem video hướng dẫn](https://www.bilibili.com/video/BV1QTckewELS/)
+
 ## Giới Thiệu Tính Năng
 Tự động đăng ký tài khoản, tự động làm mới token, giải phóng đôi tay.
 

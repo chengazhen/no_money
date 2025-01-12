@@ -12,6 +12,9 @@ README also avaiable in: [English](./README.EN.md), [Tiếng Việt](./README.VI
 - 非商业性使用 — 您不得将本作品用于商业目的
 
 
+## 视频教程
+[点击观看视频教程](https://www.bilibili.com/video/BV1QTckewELS/)
+
 ## 功能介绍
 自动注册账号，自动刷新本地token，解放双手。
 

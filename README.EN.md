@@ -10,6 +10,9 @@ This means you may:
 But you must comply with the following conditions:
 - **Non-commercial** — You may not use the material for commercial purposes.
 
+## Video Tutorial
+[Watch the tutorial video](https://www.bilibili.com/video/BV1QTckewELS/)
+
 ## Features
 Automated account registration and token refreshing to free your hands.
 

@@ -20,6 +20,7 @@ class BrowserManager:
     def _get_browser_options(self):
         """获取浏览器配置"""
         co = ChromiumOptions()
+        co.set_paths(browser_path=os.getenv("BROWSER_PATH", None))
         try:
             extension_path = self._get_extension_path()
             co.add_extension(extension_path)

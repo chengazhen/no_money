@@ -111,14 +111,17 @@ def sign_up_account(browser, tab):
     try:
         if tab.ele("@name=first_name"):
             logging.info("正在填写个人信息...")
+            tab.ele("@name=first_name").clear()
             tab.actions.click("@name=first_name").input(first_name)
             logging.info(f"已输入名字: {first_name}")
             time.sleep(random.uniform(1, 3))
 
+            tab.ele("@name=last_name").clear()
             tab.actions.click("@name=last_name").input(last_name)
             logging.info(f"已输入姓氏: {last_name}")
             time.sleep(random.uniform(1, 3))
 
+            tab.ele("@name=email").clear()
             tab.actions.click("@name=email").input(account)
             logging.info(f"已输入邮箱: {account}")
             time.sleep(random.uniform(1, 3))
@@ -277,7 +280,20 @@ if __name__ == "__main__":
 
         logging.info("\n=== 开始注册流程 ===")
         logging.info(f"正在访问登录页面: {login_url}")
-        tab.get(login_url)
+
+        while i := i + 1 if 'i' in locals() else 1:
+            try:
+                logging.info(f"尝试访问登录: {i}")
+                tab = browser.latest_tab
+                tab.get(login_url)
+                break
+            except Exception as e:
+                logging.error(f"访问登录页面失败: {str(e)}")
+                if i >= 5:
+                    logging.error("多次尝试登录失败")
+                    raise e
+                time.sleep(1)
+                continue
 
         if sign_up_account(browser, tab):
             logging.info("正在获取会话令牌...")

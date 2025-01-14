@@ -22,8 +22,8 @@ class EmailVerificationHandler:
             # 输入用户名
             self._input_username(tab_mail)
 
-            # 等待并获取最新邮件
-            code = self._get_latest_mail_code(tab_mail)
+            # 手动输入验证码
+            code = input("请输入验证码: ")
 
             # 清理邮件
             self._cleanup_mail(tab_mail)
@@ -46,31 +46,6 @@ class EmailVerificationHandler:
                 tab.actions.input(self.username).key_down(Keys.ENTER).key_up(Keys.ENTER)
                 break
             time.sleep(1)
-
-    def _get_latest_mail_code(self, tab):
-        code = None
-        while True:
-            new_mail = tab.ele("@class=mail")
-            if new_mail:
-                if new_mail.text:
-                    tab.actions.click("@class=mail")
-                    break
-                else:
-                    break
-            time.sleep(1)
-
-        if tab.ele("@class=overflow-auto mb-20"):
-            email_content = tab.ele("@class=overflow-auto mb-20").text
-            verification_code = re.search(
-                r"verification code is (\d{6})", email_content
-            )
-            if verification_code:
-                code = verification_code.group(1)
-                print("马上就要成功了")
-            else:
-                print("执行失败")
-
-        return code
 
     def _cleanup_mail(self, tab):
         if tab.ele("@id=delete_mail"):

@@ -39,11 +39,9 @@ class EmailVerificationHandler:
     def _input_username(self, tab):
         while True:
             if tab.ele("@id=pre_button"):
-                tab.actions.click("@id=pre_button")
+                tab.ele("@id=pre_button").clear()
                 time.sleep(0.5)
-                tab.run_js('document.getElementById("pre_button").value = ""')
-                time.sleep(0.5)
-                tab.actions.input(self.username).key_down(Keys.ENTER).key_up(Keys.ENTER)
+                tab.ele("@id=pre_button").input(self.username + '\n')
                 break
             time.sleep(1)
 

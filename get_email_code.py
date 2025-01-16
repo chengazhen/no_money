@@ -12,6 +12,7 @@ class EmailVerificationHandler:
 
     def get_verification_code(self):
         code = None
+        timeout = 15  # seconds
 
         try:
             print("正在处理...")
@@ -22,8 +23,17 @@ class EmailVerificationHandler:
             # 输入用户名
             self._input_username(tab_mail)
 
-            # 手动输入验证码
-            code = input("请输入验证码: ")
+            # 等待并获取最新邮件
+            start_time = time.time()
+            while time.time() - start_time < timeout:
+                code = self._get_latest_mail_code(tab_mail)
+                if code:
+                    break
+                time.sleep(1)
+
+            # 如果在15秒内未获取到验证码，则提示用户手动输入
+            if not code:
+                code = input("未获取到验证码，手动输入: ")
 
             # 清理邮件
             self._cleanup_mail(tab_mail)

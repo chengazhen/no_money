@@ -4,6 +4,7 @@ README also avaiable in: [English](./README.EN.md), [Tiếng Việt](./README.VI
 
 ## 最近有人把软件拿到咸鱼卖的，这种事情尽量少干吧。不至于什么钱都挣。
 
+
 ## 许可证声明
 本项目采用 [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) 许可证。
 这意味着您可以：
@@ -17,6 +18,8 @@ README also avaiable in: [English](./README.EN.md), [Tiếng Việt](./README.VI
 
 ## 下载地址
 https://github.com/chengazhen/cursor-auto-free/releases
+
+
 
 ## 重要提示
 **1.确保你有一个chrome浏览器；如果你没有；[下载地址](https://www.google.com/intl/en_pk/chrome/)**
@@ -89,6 +92,10 @@ chmod +x ./CursorPro
 2. 使用过程中：
    - 等待程序自动完成所有操作
    - 看到"脚本执行完毕"提示后再关闭程序
+  
+## 赞助更有动力更新
+
+![image](./screen/afdian-[未认证]阿臻.jpg)
 
 ## 常见问题解决
 

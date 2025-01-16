@@ -23,7 +23,7 @@ class Config:
         # 加载 .env 文件
         load_dotenv(dotenv_path)
 
-        self.temp_mail = os.getenv("TEMP_MAIL", "").strip()
+        self.temp_mail = os.getenv("TEMP_MAIL", "").strip().split("@")[0]
         self.domain = os.getenv("DOMAIN", "").strip()
 
         self.check_config()

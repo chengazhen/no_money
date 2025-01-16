@@ -30,17 +30,19 @@ class MachineIDResetter:
             self.db_path = os.path.join(
                 appdata, "Cursor", "User", "globalStorage", "storage.json"
             )
-        elif sys.platform == "darwin": # macOS
-            self.db_path = os.path.abspath(os.path.expanduser(
-                "~/Library/Application Support/Cursor/User/globalStorage/storage.json"
-            ))
-        elif sys.platform == "linux": # Linux 和其他类Unix系统
-            self.db_path = os.path.abspath(os.path.expanduser(
-                "~/.config/Cursor/User/globalStorage/storage.json"
-            ))
+        elif sys.platform == "darwin":  # macOS
+            self.db_path = os.path.abspath(
+                os.path.expanduser(
+                    "~/Library/Application Support/Cursor/User/globalStorage/storage.json"
+                )
+            )
+        elif sys.platform == "linux":  # Linux 和其他类Unix系统
+            self.db_path = os.path.abspath(
+                os.path.expanduser("~/.config/Cursor/User/globalStorage/storage.json")
+            )
         else:
             raise NotImplementedError(f"不支持的操作系统: {sys.platform}")
-        
+
     def generate_new_ids(self):
         """生成新的机器ID"""
         # 生成新的UUID
@@ -79,24 +81,15 @@ class MachineIDResetter:
                 print(
                     f"{Fore.RED}{EMOJI['ERROR']} 无法读写配置文件，请检查文件权限！{Style.RESET_ALL}"
                 )
+                print(
+                    f"{Fore.RED}{EMOJI['ERROR']} 如果你使用过 go-cursor-help 来修改 ID; 请修改文件只读权限 {self.db_path} {Style.RESET_ALL}"
+                )
                 return False
 
             # 读取现有配置
             print(f"{Fore.CYAN}{EMOJI['FILE']} 读取当前配置...{Style.RESET_ALL}")
             with open(self.db_path, "r", encoding="utf-8") as f:
                 config = json.load(f)
-
-            # 只在没有备份文件时创建备份
-            backup_path = self.db_path + ".bak"
-            if not os.path.exists(backup_path):
-                print(
-                    f"{Fore.YELLOW}{EMOJI['BACKUP']} 创建配置备份: {backup_path}{Style.RESET_ALL}"
-                )
-                shutil.copy2(self.db_path, backup_path)
-            else:
-                print(
-                    f"{Fore.YELLOW}{EMOJI['INFO']} 已存在备份文件，跳过备份步骤{Style.RESET_ALL}"
-                )
 
             # 生成新的ID
             print(f"{Fore.CYAN}{EMOJI['RESET']} 生成新的机器标识...{Style.RESET_ALL}")
@@ -125,6 +118,7 @@ class MachineIDResetter:
             return False
         except Exception as e:
             print(f"{Fore.RED}{EMOJI['ERROR']} 重置过程出错: {str(e)}{Style.RESET_ALL}")
+
             return False
 
 

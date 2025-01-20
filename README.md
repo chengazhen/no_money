@@ -50,6 +50,24 @@ TEMP_MAIL='ccxxxxcxx'
 ```
 那么程序将随机生成 `@wozhangsan.me` 后缀作为注册邮箱。
 
+### 使用 IMAP 来代替 tempmail.plus 邮箱
+如果无法使用 tempmail.plus 邮箱，或者想使用一种更安全的方法来获取验证码，你可以像这样设置
+```base
+DOMAIN='wozhangsan.me'
+TEMP_MAIL=null
+
+# IMAP服务器
+IMAP_SERVER=imap.xxxxx.com
+# IMAP的SSL端口
+IMAP_PORT=993  
+# 使用cf转发到的邮箱
+IMAP_USER=xxxxxx@xxxxx.com
+# 邮箱授权码
+IMAP_PASS=xxxxxxxxxxxxx
+# [可选] 默认是收件箱(inbox)
+# 你也可以设置成其他的文件夹，只要你可以收到
+IMAP_DIR=
+```
 
 ## 运行方法
 
